@@ -17,3 +17,8 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: http://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+## postgres troubleshooting
+1. `psql -U <username> <database>`
+2. show users and roles: `\du`
+3. `ALTER USER <username> WITH SUPERUSER;`
