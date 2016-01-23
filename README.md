@@ -22,3 +22,8 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 1. `psql -U <username> <database>`
 2. show users and roles: `\du`
 3. `ALTER USER <username> WITH SUPERUSER;`
+
+# connect to db
+1. `psql -U postgres`
+2. show all tables: `\d`
+3. show table: `\d <table-name>`
