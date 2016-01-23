@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias Dare.Repo
+alias Dare.User
+
+user_params = %User{name: "Leeroy Jenkins", email: "leroy@jenkins.jpeg"}
+Repo.insert!(user_params)
+# Dare.Repo.insert!(%Dare.Dare{})

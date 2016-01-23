@@ -1,36 +1,48 @@
-<div class="jumbotron">
-  <h2>Welcome to Phoenix!</h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+<body>
+  <div class="homepage">
+    <div class="nav">
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+      <div class="container">
+        <ul>
+          <%= if logged_in?(@conn) do %>
+            <li><%= current_user(@conn).name %></li>
+            <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
+          <% else %>
+            <li><%= link "Login",    to: session_path(@conn, :new) %></li>
+            <li><%= link "Register", to: registration_path(@conn, :new) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container">
+        <div class="logo"></div>
+        <h1 class="brand">Dare</h1>
+        <p> Looking for a way to waste your money? <br>Look no further. With Dare, you can watch
+        stupid people do stupid things. </p>
+        <button class="signup-btn">Signup Now</button>
+      </div>
+      <div class="blurb">
+        <div class="container">
+          <p> This is the tilted summary and we're tilting it because we're badass and know how
+      to do really awesome web development. Hats off to Yenny Cheung if she can actually pull
+      it off </p>
+        </div>
+      </div>
+      <div class="feed">
+        <div class="videos">
+          <div id="player"></div>
+        </div>
+      </div>
+      <div class="social-media">
+        <div class="container">
+          <a><div class="icon facebook"></div></a>
+          <a><div class="icon twitter"></div></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+    </div>
   </div>
-</div>
+</body>
