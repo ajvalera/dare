@@ -1,0 +1,34 @@
+<h2>Listing dares</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Goal</th>
+      <th>Raised</th>
+      <th>User</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for dare <- @dares do %>
+    <tr>
+      <td><%= dare.name %></td>
+      <td><%= dare.description %></td>
+      <td><%= dare.goal %></td>
+      <td><%= dare.raised %></td>
+      <td><%= dare.user_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: dare_path(@conn, :show, dare), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: dare_path(@conn, :edit, dare), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: dare_path(@conn, :delete, dare), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New dare", to: dare_path(@conn, :new) %>

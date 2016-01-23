@@ -1,0 +1,6 @@
+<h2>Edit dare</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: dare_path(@conn, :update, @dare) %>
+
+<%= link "Back", to: dare_path(@conn, :index) %>
