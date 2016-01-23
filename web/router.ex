@@ -19,6 +19,7 @@ defmodule Dare.Router do
     get "/", PageController, :index
     get "/hello", HelloController, :index
 
+    resources "/registrations", RegistrationController, only: [:new, :create]
     resources "/users", UserController
     resources "/dares", DareController
   end
