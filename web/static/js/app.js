@@ -12,7 +12,13 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "/web/static/js/socket"
+import { Video } from "web/static/js/video";
 
+export var App = {
+  run: function(){
+    Video.init()
+  }
+}
 // Import local files
 //
 // Local files can be imported directly using relative
