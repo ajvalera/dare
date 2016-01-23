@@ -27,3 +27,6 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 1. `psql -U postgres`
 2. show all tables: `\d`
 3. show table: `\d <table-name>`
+4. If getting error: that /usr/local/var/postgres was made w/ an older version of postgres
+* `rm -rf /usr/local/var/postgres`
+* `initdb -D /usr/local/var/postgres/`
