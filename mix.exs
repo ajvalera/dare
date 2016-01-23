@@ -30,7 +30,8 @@ defmodule Dare.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.0.3"},
+    [{:phoenix, git: "https://github.com/phoenixframework/phoenix.git",
+     tag: "master", override: true},
      {:phoenix_ecto, "~> 1.1"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
