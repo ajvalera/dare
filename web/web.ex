@@ -48,6 +48,7 @@ defmodule Dare.Web do
       use Phoenix.HTML
 
       import Dare.Router.Helpers
+      import Dare.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 

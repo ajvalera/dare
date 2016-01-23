@@ -5,12 +5,15 @@ defmodule Dare.User do
     field :name, :string
     field :email, :string
 
+    field :crypted_password, :string
+    field :password, :string, virtual: true
+
     has_one :dare, Dare.Dare
 
     timestamps
   end
 
-  @required_fields ~w(name email)
+  @required_fields ~w(name email password)
   @optional_fields ~w()
 
   @doc """
@@ -22,5 +25,8 @@ defmodule Dare.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> unique_constraint(:email)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 5)
   end
 end
