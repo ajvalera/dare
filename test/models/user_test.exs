@@ -3,7 +3,7 @@ defmodule Dare.UserTest do
 
   alias Dare.User
 
-  @valid_attrs %{email: "some content", name: "some content"}
+  @valid_attrs %{crypted_password: "some content", email: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
