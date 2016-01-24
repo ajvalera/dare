@@ -1169,20 +1169,15 @@ for (var i = 0; i < len; ++i) {
 // to also remove its path from "config.paths.watched".
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 require("/web/static/js/socket");
 
-var _webStaticJsVideo = require("web/static/js/video");
+// import { Video } from "web/static/js/video";
 
-var App = {
-  run: function run() {
-    _webStaticJsVideo.Video.init();
-  }
-};
-exports.App = App;
+// export var App = {
+//   run: function(){
+//     Video.init()
+//   }
+// }
 // Import local files
 //
 // Local files can be imported directly using relative
@@ -1263,56 +1258,6 @@ channel.join().receive("ok", function (resp) {
 
 exports["default"] = socket;
 module.exports = exports["default"];
-});
-
-;require.register("web/static/js/video", function(exports, require, module) {
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-var Video = {
-  init: function init() {
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '200',
-        width: '300',
-        videoId: 'M7lc1UVf-VE',
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
-
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
-    var done = false;
-    function onPlayerStateChange(event) {
-      if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-      }
-    }
-    function stopVideo() {
-      player.stopVideo();
-    }
-  }
-};exports.Video = Video;
-// 2. This code loads the IFrame Player API code asynchronously.
 });
 
 ;require('web/static/js/app');

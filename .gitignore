@@ -13,7 +13,9 @@ erl_crash.dump
 # Since we are building assets from web/static,
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
-#/priv/static/
+/priv/static/.sass-cache
+/web/static/.sass-cache/
+/web/static/css/app.css.map
 
 # The config/prod.secret.exs file by default contains sensitive
 # data and you should not commit it into version control.
@@ -27,3 +29,9 @@ erl_crash.dump
 /deps
 erl_crash.dump
 *.ez
+
+
+logfile
+pg_upgrade_internal.log
+pg_upgrade_server.log
+pg_upgrade_utility.log
